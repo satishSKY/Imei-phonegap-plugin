@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android"
+id="sky.phonegap.plugins" version="0.1">
+<engines>
+<engine name="cordova" version=">=3.6.0" />
+</engines>
+<name>IMEI Plugin</name>
+<description>Get  IMEI Number of Device</description>
+<author>satish kumar</author>
+<license>Apache 2.0</license>
+<keywords>cordova,Imei</keywords>
+<js-module src="www/imei.js" name="ImeiPlugin">
+<clobbers target="imeiplugin" />
+</js-module>
+<!-- android -->
+<platform name="android">
+<config-file target="res/xml/config.xml" parent="/*">
+<feature name="ImeiPlugin" >
+<param name="android-package" value="sky.phonegap.plugins.ImeiPlugin"/>
+</feature>
+</config-file>
+<config-file target="AndroidManifest.xml" parent="/manifest">
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+</config-file>
+<source-file src="src/android/ImeiPlugin.java" target-dir="src/sky/phonegap/plugins" />
+</platform>
+<!-- android -->
+</plugin>
